@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Riko ♡</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: #65445f;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.8), transparent 25%),
+    linear-gradient(135deg, #ffe8f3, #eee5ff 55%, #dcecff);
+  transition: background 2s ease, color 2s ease;
+}
+
+/* Night mode */
+body.night {
+  color: #eee7ff;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(185,166,255,.25), transparent 30%),
+    linear-gradient(145deg, #17152f, #302650 55%, #182c4b);
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: white;
+  opacity: .8;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .25; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+.container {
+  width: min(92%, 760px);
+  margin: auto;
+  padding: 35px 0 70px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  background: rgba(255,255,255,.86);
+  border: 2px solid rgba(255,190,220,.8);
+  border-radius: 35px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(100,60,120,.15);
+  backdrop-filter: blur(8px);
+  animation: appear .8s ease;
+}
+
+.night .card {
+  background: rgba(38,32,70,.78);
+  border-color: rgba(203,185,255,.45);
+  box-shadow: 0 20px 70px rgba(0,0,0,.35);
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  color: #bd6794;
+  font-size: clamp(32px, 8vw, 58px);
+  margin: 12px 0;
+}
+
+.night h1 {
+  color: #e4caff;
+}
+
+h2 {
+  color: #a55b8c;
+  font-size: clamp(24px, 6vw, 35px);
+}
+
+.night h2 {
+  color: #d9c5ff;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.small {
+  font-size: 14px;
+  opacity: .7;
+}
+
+.flowers {
+  font-size: 34px;
+  line-height: 1.7;
+  margin: 12px 0;
+}
+
+.ribbon {
+  font-size: 45px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 25px;
+  margin: 9px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #e99abd, #b88de0);
+  box-shadow: 0 8px 20px rgba(150,90,170,.2);
+  transition: .25s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+.japan {
+  margin: 20px auto;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,225,239,.65);
+}
+
+.night .japan {
+  background: rgba(91,73,130,.35);
+}
+
+.japan-big {
+  font-size: 27px;
+  margin-bottom: 5px;
+}
+
+.chibis {
+  display: flex;
+  justify-content: center;
+  gap: 55px;
+  margin: 30px 0;
+}
+
+.chibi {
+  text-align: center;
+}
+
+.head {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: relative;
+  margin: auto;
+  border: 4px solid #65445f;
+  box-shadow: 0 8px 20px rgba(80,40,80,.15);
+}
+
+.yuki-head {
+  background: #ffd2e4;
+}
+
+.riko-head {
+  background: #e0d0ff;
+}
+
+.eye {
+  position: absolute;
+  width: 13px;
+  height: 18px;
+  background: #65445f;
+  border-radius: 50%;
+  top: 43px;
+}
+
+.eye.left { left: 29px; }
+.eye.right { right: 29px; }
+
+.smile {
+  position: absolute;
+  width: 27px;
+  height: 13px;
+  border-bottom: 3px solid #65445f;
+  border-radius: 50%;
+  left: 38px;
+  top: 67px;
+}
+
+.hair {
+  position: absolute;
+  top: -12px;
+  left: 4px;
+  right: 4px;
+  height: 45px;
+  border-radius: 50% 50% 30% 30%;
+  background: #2b2530;
+}
+
+.riko-hair {
+  background: #b63d57;
+}
+
+.flower-wand {
+  font-size: 65px;
+  margin: 20px;
+  animation: wand 1.5s infinite alternate;
+}
+
+@keyframes wand {
+  to { transform: rotate(8deg) scale(1.08); }
+}
+
+.spider {
+  font-size: 60px;
+  animation: sway 2.5s infinite ease-in-out;
+}
+
+@keyframes sway {
+  50% { transform: rotate(5deg) translateY(-5px); }
+}
+
+.message {
+  text-align: left;
+  background: rgba(255,244,249,.8);
+  border-radius: 25px;
+  padding: 25px;
+  margin-top: 25px;
+  border: 1px solid #f0bfd5;
+  white-space: pre-line;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.night .message {
+  background: rgba(26,22,52,.65);
+  border-color: rgba(210,190,255,.35);
+}
+
+.final {
+  animation: finalAppear 1.5s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes finalAppear {
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hearts {
+  font-size: 30px;
+  letter-spacing: 10px;
+  animation: hearts 2s infinite alternate;
+}
+
+@keyframes hearts {
+  to { transform: translateY(-6px); }
+}
+
+.birthday-box {
+  margin: 25px auto;
+  padding: 22px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(255,210,230,.75), rgba(220,205,255,.75));
+}
+
+.night .birthday-box {
+  background: linear-gradient(135deg, rgba(105,75,135,.55), rgba(55,74,125,.55));
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<div class="container">
+
+<!-- SCENE 1 -->
+<section class="card" id="scene1">
+
+  <div class="ribbon">🎀</div>
+
+  <div class="flowers">
+    🌸 🌷 🌹 🌻 🌼 🌺
+  </div>
+
+  <h1>Hi Riko ♡</h1>
+
+  <p>
+    Welcome to your tiny little birthday world. 🌸
+  </p>
+
+  <p>
+    Today isn't just any day...
+    <br>
+    because someone very important
+    <br>
+    is finally turning <b>18.</b> 😭
+  </p>
+
+  <div class="japan">
+    <div class="japan-big">お誕生日おめでとう！</div>
+    <b>Otanjoubi omedetou!</b>
+    <br>
+    Happy Birthday! 🎂
+  </div>
+
+  <div class="chibis">
+
+    <div class="chibi">
+      <div class="head yuki-head">
+        <div class="hair"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="smile"></div>
+      </div>
+      <p><b>YUKI 🎮</b></p>
+    </div>
+
+    <div class="chibi">
+      <div class="head riko-head">
+        <div class="riko-hair"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="smile"></div>
+      </div>
+      <p><b>RIKO 🌸</b></p>
+    </div>
+
+  </div>
+
+  <p>
+    One year of friendship.
+    <br>
+    One year of gossip.
+    <br>
+    One year of absolute chaos. 😭
+  </p>
+
+  <div class="birthday-box">
+
+    <h2>🎂 THE BIG NEWS 🎂</h2>
+
+    <p>
+      You wanted to become an adult...
+      <br><br>
+      Your wish has finally come true.
+      😭
+    </p>
+
+    <h2>YOU ARE 18 NOW. 💀</h2>
+
+    <p>
+      Congratulations, gurlll.
+      <br>
+      You have officially unlocked:
+      <br>
+      <b>ADULT MODE.</b>
+    </p>
+
+  </div>
+
+  <div class="flower-wand">🌷🪄</div>
+
+  <p>
+    Use the magical flower wand
+    <br>
+    to continue your birthday journey.
+  </p>
+
+  <button onclick="goToScene2()">
+    ✨ Cast the Birthday Spell ✨
+  </button>
+
+  <div class="flowers">
+    🥀 🌸 🌷 🥀 🌷 🌸
+  </div>
+
+</section>
+
+
+<!-- SCENE 2 -->
+<section class="card hidden" id="scene2">
+
+  <div class="flowers">
+    🌸 ✨ 🌸 ✨ 🌸
+  </div>
+
+  <h1>One More Thing... 💗</h1>
+
+  <p>
+    Before you go...
+  </p>
+
+  <div class="spider">
+    🥀
+  </div>
+
+  <p>
+    The garden is getting darker...
+    <br>
+    and the stars are coming out.
+  </p>
+
+  <div class="japan">
+    <div class="japan-big">ずっと友達だよ</div>
+    <b>Zutto tomodachi da yo</b>
+    <br>
+    We'll always be friends. ♡
+  </div>
+
+  <p>
+    From one chaotic bestie
+    <br>
+    to another...
+  </p>
+
+  <h2>
+    Happy 18th Birthday, Riko. 🌙
+  </h2>
+
+  <p>
+    And now...
+  </p>
+
+  <button onclick="showLetter()">
+    Wait... there's one more thing. 👀
+  </button>
+
+</section>
+
+
+<!-- LETTER -->
+<section class="card hidden final" id="letter">
+
+  <div class="hearts">
+    💗 💜 💗 💜 💗
+  </div>
+
+  <div class="flowers">
+    🌸 🌷 🥀 🌹 🌻 🌼
+  </div>
+
+  <h1>To my Bestie ♡</h1>
+
+  <div class="message">To my Bestie
+I hope we continue to be. eachothers best-friend forever. Whatever happens, the time we spend with eachother will never be forgotten Even if one day we starts grow distant, Know that I'll always be there for you. CHOPE that will never
+come again)... Happy Birthday Gurlll♡
+Even if I forget you, the teas you spilled and the gossips we Shared will never be forgotten...
+HAPPY BIRTHDAY MERA BACHA LOVE YOU SOO MUCH MUWHHH !</div>
+
+  <div class="flowers">
+    🌷 🌸 🌻 🌹 🌼 🌺
+  </div>
+
+  <h2>♡ おやすみ、親友 ♡</h2>
+
+  <p>
+    <b>Oyasumi, shinyuu</b>
+    <br>
+    Goodnight, bestie. 🌙
+  </p>
+
+  <p>
+    From your bestie for restie,
+    <br>
+    <b>YUKI 💗</b>
+  </p>
+
+  <div class="hearts">
+    💗 💜 💗 💜 💗
+  </div>
+
+  <button onclick="location.reload()">
+    🌸 Replay the Birthday 🌸
+  </button>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* Create tiny stars */
+const starContainer = document.getElementById("stars");
+
+for (let i = 0; i < 55; i++) {
+  const star = document.createElement("span");
+
+  star.className = "star";
+  star.textContent = "✦";
+
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.fontSize = (Math.random() * 12 + 6) + "px";
+  star.style.animationDelay = Math.random() * 2 + "s";
+
+  starContainer.appendChild(star);
+}
+
+
+/* Scene 1 → Scene 2 */
+function goToScene2() {
+
+  document.getElementById("scene1").classList.add("hidden");
+
+  document.getElementById("scene2").classList.remove("hidden");
+
+  document.body.classList.add("night");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+/* Scene 2 → Letter */
+function showLetter() {
+
+  document.getElementById("scene2").classList.add("hidden");
+
+  document.getElementById("letter").classList.remove("hidden");
+
+  document.body.classList.add("night");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+</script>
+
+</body>
+</html>
